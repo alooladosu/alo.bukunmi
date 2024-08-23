@@ -1,5 +1,24 @@
 # Assignment: Compose For Image Building
 
+FROM drupal:8.6
+RUN apt-get update && apt-get install -y git \
+    && rm -rf /var//lib/apt/lists/*
+WORKDIR /var/www/html/themes
+RUN git clone --branch 8.x-4.x --single-branch --depth 1 https://git.drupalcode.org/project/bootstrap.git \
+    chown -R www-data:www-data bootstrap
+WORKDIR /var/www/html
+    
+
+
+
+
+
+
+
+
+
+
+
 > Goal: This time imagine you're just wanting to learn Drupal's admin and GUI, or maybe you're a software tester and you need to test a new theme for Drupal. When configured properly, this will let you build a custom image and start everything with `docker-compose up` including storing important db and config data in volumes so the site will remember your changes across Compose restarts.
 
 [Docker Mastery Lecture](https://www.udemy.com/course/docker-mastery/learn/lecture/6775804)
